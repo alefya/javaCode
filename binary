@@ -1,0 +1,23 @@
+public class Solution {
+
+	public String findDigitsInBinary(int a) {
+	    
+	    StringBuilder binary = new StringBuilder();
+	    String s;
+                 if(a==0)
+                         { s="0";
+ 
+                            return s; }
+
+while (a>0) {
+    if((a&1)==1){
+        binary.append(1);
+    }else
+        binary.append(0);
+    a>>=1;
+}
+binary.reverse();
+ s= binary.toString();
+return s;
+	    
+	    
