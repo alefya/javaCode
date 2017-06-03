@@ -1,0 +1,59 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public int hammingDistance(final List<Integer> A) {
+        int i,j,k,l,totalNumbers,lengthOfString,count=0,sum=0,max;
+        String x,y,string1,string2,variable;
+        //A.sort();
+        //A.reverse();
+        //Collections.sort(A, Collections.reverseOrder());
+        totalNumbers=A.size();
+        for(i=0;i<totalNumbers;i++)
+        {
+            
+                for(j=0;j<totalNumbers;j++)
+                {
+                  
+                
+                string1= Integer.toBinaryString(A.get(i));
+                string2=Integer.toBinaryString(A.get(j));
+                x =new StringBuffer(string1).reverse().toString();
+                y =new StringBuffer(string2).reverse().toString();
+                if(x==y){
+                        count=0;
+                        continue;
+                        }
+               if(x.length() > y.length())
+                        {
+                            max= x.length();
+                            variable= x;
+                            
+                        }
+                        else
+                        {
+                            max=y.length();
+                            variable=y;
+                        }
+                lengthOfString = ( x.length() > y.length() ) ? y.length() : x.length() ;
+                //count += Math.abs(x.length() - y.length());
+                       
+                        for (k=0;k<lengthOfString;k++)
+                                    {
+                                        if(x.charAt(k) != y.charAt(k))
+                                                     {count++;}
+                                        
+                                    }
+                        for(l=k;l<max;l++)
+                                    {
+                                        if (variable.charAt(l) == '1')
+                                             {count++;}
+                                        
+                                    }
+                }
+             sum += count;
+             count= 0;  
+        }
+                  
+        return sum;
+    }
+    
+}
