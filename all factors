@@ -1,0 +1,21 @@
+import java.util.*;
+public class Solution {
+	public ArrayList<Integer> allFactors(int a) {
+	    
+	    ArrayList<Integer> fac = new ArrayList<Integer>();
+	    int upperlimit = (int)(Math.sqrt(a));
+       
+        for(int i=1;i <= upperlimit; i+= 1){
+            if(a%i == 0){
+                fac.add(i);
+                if(i != a/i){
+                    fac.add(a/i);
+                }
+            }
+        }
+        
+	    Collections.sort(fac);
+       // Collections.reverse(fac);
+	    return fac;
+	    }
+	}
